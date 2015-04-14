@@ -1,0 +1,15 @@
+div{
+width: 50vh;
+	height: 50vhpx;
+	padding: 20px;
+
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	border: 1px solid red;
+  margin:-150px 0 0 -170px;
+}
+input{
+
+	float:right;
+}
