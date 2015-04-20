@@ -17,13 +17,16 @@ window.onload = function(){
 	}
 }
 </script>
+<script src="Login.js" type="text/javascript"></script>
 <style type="text/css">
 	#tfheader{
-		background-color:#c3dfef;
+		background-color:#ffffff;
+		float:right;
+		
 	}
 	#tfnewsearch{
 		float:right;
-		padding:20px;
+		padding:0px;
 	}
 	.tftextinput2{
 		margin: 0;
@@ -67,48 +70,159 @@ window.onload = function(){
 		clear:both;
 	}
 	table{
-		border-spacing:40px;
+		padding-right: 10px;
+		margin: Opx;
+		border-spacing:10px;
+		margin-left:auto;
+		margin-right:auto;
 	
 	}
+	#tfq{
+		float:right;
+		margin-right:30px
+
+	}
+	#tfheader{
+		float:left;
+
+	}
+	#arrow{
+		float:right;
+		margin-right:-230px
+	
+	}
+	
+	.footer{  
+    width: 600px;  
+    margin: 30px auto; /* buttons pushed from the top by 10% */  
+ }  
+
+.button{  
+    margin: 8px;
+      
+}  
+
+.button a{  
+    font-family: impact, sans-serif;
+    font-size: 15px;  
+    color: #777;
+    text-shadow: 1px 1px 0px white;
+    background: #ffffff; /* Old browsers */  
+    background: -moz-linear-gradient(top, #ffffff 0%, #dfdfdf 100%); /* FF3.6+ */  
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffffff), color-stop(100%,#dfdfdf)); /* Chrome,Safari4+ */  
+    background: -webkit-linear-gradient(top, #ffffff 0%,#dfdfdf 100%); /* Chrome10+,Safari5.1+ */  
+    background: -o-linear-gradient(top, #ffffff 0%,#dfdfdf 100%); /* Opera11.10+ */  
+    background: -ms-linear-gradient(top, #ffffff 0%,#dfdfdf 100%); /* IE10+ */  
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#dfdfdf',GradientType=0 ); /* IE6-9 */  
+    background: linear-gradient(top, #ffffff 0%,#dfdfdf 100%); /* W3C */  
+    -moz-border-radius: 3px;  
+    -webkit-border-radius: 3px;  
+    border-radius: 3px;  
+    -moz-box-shadow: 0 1px 3px 0px rgba(0,0,0,0.4); 
+    -webkit-box-shadow: 0 1px 3px 0px rgba(0,0,0,0.4); 
+    box-shadow: 0 1px 3px 0px rgba(0,0,0,0.4);  
+    padding: 6px 12px;  
+}  
+
+.button a:hover{  
+    background: #ffffff; /* Old browsers */  
+    background: -moz-linear-gradient(top, #ffffff 0%, #eee 100%); /* FF3.6+ */  
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffffff), color-stop(100%,#eee)); /* Chrome,Safari4+ */  
+    background: -webkit-linear-gradient(top, #ffffff 0%,#eee 100%); /* Chrome10+,Safari5.1+ */  
+    background: -o-linear-gradient(top, #ffffff 0%,#eee 100%); /* Opera11.10+ */  
+    background: -ms-linear-gradient(top, #ffffff 0%,#eee 100%); /* IE10+ */  
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#eee',GradientType=0 ); /* IE6-9 */  
+    background: linear-gradient(top, #ffffff 0%,#eee 100%); /* W3C */  
+    -moz-box-shadow: 0 1px 3px 0px rgba(0,0,0,0.4); 
+    -webkit-box-shadow: 0 1px 3px 0px rgba(0,0,0,0.4); 
+    box-shadow: 0 1px 3px 0px rgba(0,0,0,0.4);  
+}  
+
+.button a:active{  
+    background: #dfdfdf; /* Old browsers */  
+    background: -moz-linear-gradient(top, #dfdfdf 0%, #f1f1f1 100%); /* FF3.6+ */  
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#dfdfdf), color-stop(100%,#f1f1f1)); /* Chrome,Safari4+ */  
+    background: -webkit-linear-gradient(top, #dfdfdf 0%,#f1f1f1 100%); /* Chrome10+,Safari5.1+ */  
+    background: -o-linear-gradient(top, #dfdfdf 0%,#f1f1f1 100%); /* Opera11.10+ */  
+    background: -ms-linear-gradient(top, #dfdfdf 0%,#f1f1f1 100%); /* IE10+ */  
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#dfdfdf', endColorstr='#f1f1f1',GradientType=0 ); /* IE6-9 */  
+    background: linear-gradient(top, #dfdfdf 0%,#f1f1f1 100%); /* W3C */  
+
+    -webkit-box-shadow: 0px 1px 1px 1px rgba(0,0,0,0.2) inset, 0px 1px 1px 0 rgba(255,255,255,1);
+    -moz-box-shadow: 0px 1px 1px 1px rgba(0,0,0,0.2) inset, 0px 1px 1px 0 rgba(255,255,255,1);  
+    box-shadow: 0px 1px 1px 1px rgba(0,0,0,0.2) inset, 0px 1px 1px 0 rgba(255,255,255,1);  
+
+}
+
+.button a > img{  
+    padding-right: 8px;  
+    position: relative;  
+    top: 2px;  
+    
+}  
+
+	
 </style>
 
 </head>
 <body>
-	<img id="logo" src="Logo.jpg" alt="Logo" style="width:150px; height:150px; float: left; "/>
-	<div id="tfheader">
-		<form id="tfnewsearch" method="get" action="">
-		        <input type="text" id="tfq" class="tftextinput2" name="q" size="21" maxlength="120" value="Search our website"><input type="submit" value=">" class="tfbutton2">
+	<div id="wrapperHeader">
+    <div id="header">
+	<form id="tfnewsearch" method="get" action="">
+		        <input type="text" id="tfq" class="tftextinput2" name="q" size="21" maxlength="120" value="Search our website">
+				<input id="arrow" type="submit" value=">" class="tfbutton2">
 		</form>
+
+		<div id="tfheader">
+		
 		<div class="tfclear"></div>
-		<form action="login" method="post">
+		<form name="login" action="login" method="post" onsubmit="return LoginCheck()">
 		<br>
-		<b>Email: </b><input type="text" name="logemail"> <br>
-		<b>Password: </b><input type="text" name="logpass"> <br>
+		<b>Email: </b><input type="text" name="logemail"><br>
+		<b>Password: </b><input type="password" name="logpass"><br>
 		<input type="submit" value="Log in"/>
 		</form>
-	<a href="CreateAccount.html">Don't have an account?</a><br>
-	</div>
+		<a href="CreateAccount.html">Don't have an account?</a><br>
+		</div>
+		
+             <a href="index.html"><img src="Untitled-1.png" width="1340" height="250" alt="logo" /></a>
+		
+    </div> 
+</div>
+	
 	<div id="menu">
-		<table>
-		  <tr>
-			<td><a href=""><img class src="ProductLogos/Baby.jpg" alt="Baby" style="width:88px; height:80px; "/></a></td>
-			<td><a href=""><img src="ProductLogos/Books.jpg" alt="Books" style="width:88px; height:80px; "/></a></td>
-			<td><a href=""><img src="ProductLogos/Clothes.jpg" alt="Clothes" style="width:88px; height:80px; "/> </a></td>
-			<td><a href=""><img src="ProductLogos/Computers.jpg" alt="Computers" style="width:88px; height:80px; "/> </a></td>
+		<table><center>
+		   <tr>
+			<td><a href="baby.html"><img class src="ProductLogos/Baby.jpg" alt="Baby" style="width:150px; height:150px; "/></a></td>
+			<td><a href="books.html"><img src="ProductLogos/Books.jpg" alt="Books" style="width:150px; height:150px; "/></a></td>
+			<td><a href="clothes.html"><img src="ProductLogos/Clothes.jpg" alt="Clothes" style="width:150px; height:150px; "/> </a></td>
+			
 		  </tr>
 		  <tr>
-			<td><a href=""><img src="ProductLogos/Furniture.jpg" alt="Furniture" style="width:88px; height:80px; "/> </a></td>
-			<td><a href=""><img src="ProductLogos/Jobs.jpg" alt="Jobs" style="width:88px; height:80px; "/> </a></td>
-			<td><a href=""><img src="ProductLogos/Pets.jpg" alt="Pets" style="width:88px; height:80px; "/> </a></td>
-			<td><a href=""><img src="ProductLogos/Phones.jpg" alt="Phones" style="width:88px; height:80px; "/> </a></td>
+			
+			<td><a href="vehicle.html"><img src="ProductLogos/Vehicle.jpg" alt="Vehicle" style="width:150px; height:150px; "/> </a></td>
+			<td><a href="pets.html"><img src="ProductLogos/Pets.jpg" alt="Pets" style="width:150px; height:150px; "/> </a></td>
+			<td><a href="phones.html"><img src="ProductLogos/Phones.jpg" alt="Phones" style="width:150px; height:150px; "/> </a></td>
 		  </tr>
-		  <tr>
-			<td><a href=""><img src="ProductLogos/Real Estate.jpg" alt="Real Estate" style="width:88px; height:80px; "/> </a></td>
-			<td><a href=""><img src="ProductLogos/Services.jpg" alt="Services" style="width:88px; height:80px; "/> </a></td>
-			<td><a href=""><img src="ProductLogos/Sports.jpg" alt="Sports" style="width:88px; height:80px; "/> </a></td>
-			<td><a href=""><img src="ProductLogos/Vehicle.jpg" alt="Vehicle" style="width:88px; height:80px; "/>   </a></td>
-		  </tr>
-		</table>
+		 
+		</center></table>
 	</div>
+<div class="footer">  
+        <span class="button fb">  
+            <a href="http://www.facebook.com"><img src="f.png" alt="">Facebook</a>  
+        </span>  
+  
+        <span class="button twit">  
+            <a href="http://www.twitter.com"><img src="t.png" alt="">Twitter</a>  
+        </span>  
+  
+        <span class="button mail">  
+            <a href="http://www.yahoo.com"><img src="e.png" alt="">Yahoo Mail</a>  
+        </span>  
+
+	<span class="button ig">  
+            <a href="http://www.instagram.com"><img src="i.png" alt="">Instagram</a>  
+        </span>  
+    </div>  		
 </body>
 </html>
