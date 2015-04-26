@@ -34,6 +34,10 @@ function CreateVal() {
         alert("Passwords should be the same");
         return false;
     }
+    if (conpass.length<6) {
+    	alert("Password should have 6 or more characters");
+        return false;
+    }
     var re = /^[A-Za-z]+$/;
     var regfname = document.forms["reg"]["regfname"].value;
     if (regfname == null || regfname == "") {

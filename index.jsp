@@ -1,8 +1,9 @@
-<!DOCTYPE html>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>  
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta charset="ISO-8859-1">
-<title>Buy and Sell Site</title>
 <script type="text/javascript">
 window.onload = function(){ 
 	//Get submit button
@@ -94,7 +95,7 @@ window.onload = function(){
 	
 	.footer{  
     width: 600px;  
-    margin: 30px auto; /* buttons pushed from the top by 10% */  
+    margin: 30px auto; /* buttons pushed from the top by 100% */  
  }  
 
 .button{  
@@ -164,6 +165,8 @@ window.onload = function(){
 	
 </style>
 
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Buy & Sell Site</title>
 </head>
 <body>
 	<div id="wrapperHeader">
@@ -174,18 +177,29 @@ window.onload = function(){
 		</form>
 
 		<div id="tfheader">
-		
+		<%@ page import="java.io.PrintWriter" %>
+		<%
+			String user=(String)session.getAttribute("logemail");
+			if (user!=null && user!="") {
+				out.println(user); %>
+				<br><a href="Logout.jsp">Log Out</a><br>
+				<%
+			}
+			else {
+		%>
 		<div class="tfclear"></div>
-		<form name="login" action="login" method="post" onsubmit="return LoginCheck()">
+		<form name="login" action="Login.jsp" method="post" onsubmit="return LoginCheck()">
 		<br>
 		<b>Email: </b><input type="text" name="logemail"><br>
 		<b>Password: </b><input type="password" name="logpass"><br>
 		<input type="submit" value="Log in"/>
 		</form>
-		<a href="CreateAccount.html">Don't have an account?</a><br>
+		<a href="CreateAccount.jsp">Don't have an account?</a><br>
+		<%
+			}
+		%>
 		</div>
-		
-             <a href="index.html"><img src="Untitled-1.png" width="100%" height="250" alt="logo" /></a>
+		<a href="index.jsp"><img src="Untitled-1.png" width="100%" height="250" alt="logo" /></a>
 		
     </div> 
 </div>
@@ -193,7 +207,7 @@ window.onload = function(){
 	<div id="menu">
 		<table><center>
 		   <tr>
-			<td><a href="baby.html"><img class src="ProductLogos/Baby.jpg" alt="Baby" style="width:150px; height:150px; "/></a></td>
+			<td><a href="baby.html"><img src="ProductLogos/Baby.jpg" alt="Baby" style="width:150px; height:150px; "/></a></td>
 			<td><a href="books.html"><img src="ProductLogos/Books.jpg" alt="Books" style="width:150px; height:150px; "/></a></td>
 			<td><a href="clothes.html"><img src="ProductLogos/Clothes.jpg" alt="Clothes" style="width:150px; height:150px; "/> </a></td>
 			
@@ -223,6 +237,6 @@ window.onload = function(){
 	<span class="button ig">  
             <a href="http://www.instagram.com"><img src="i.png" alt="">Instagram</a>  
         </span>  
-    </div>  		
+    </div>
 </body>
 </html>

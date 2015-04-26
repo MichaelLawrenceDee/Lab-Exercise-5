@@ -1,7 +1,8 @@
-
-
-<!DOCTYPE html>
-<html lang="en">
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>  
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
 <head>
 	<meta charset="utf-8">
 	<meta name="author" content="Paola Dizon" />
@@ -9,7 +10,8 @@
 	
 <script src="Contact.js" type="text/javascript"></script>        
 </head>
-<body>	
+<body>
+
 <div id="wrapperHeader">
     <div id="header">
 	<form id="tfnewsearch" method="get" action="">
@@ -17,16 +19,16 @@
 				<input id="arrow" type="submit" value=">" class="tfbutton2">
 		</form>
 		
-             <a href="index.html"><img src="Untitled-1.png" width="1340" height="250" alt="logo" /></a>
+             <a href="index.jsp"><img src="Untitled-1.png" width="1340" height="250" alt="logo" /></a>
 		
     </div>
 
 	<div id="hoho">	
 	    <div id="navbar">
- 		 <a href="index.html" class="action-button shadow animate blue">HOME</a>
+ 		 <a href="index.jsp" class="action-button shadow animate blue">HOME</a>
  		 <a href="About.html" class="action-button shadow animate red">ABOUT</a>
   		 <a href="Menu.html" class="action-button shadow animate green">MENU</a>
- 		 <a href="Contact.html" class="action-button shadow animate yellow">CONTACT</a>
+ 		 <a href="contact.jsp" class="action-button shadow animate yellow">CONTACT</a>
   	    </div>
 	</div>
 	
@@ -35,7 +37,13 @@
 <h1>CONTACT US</h1>
 <form name="contact" action="contact" method="post" onsubmit="return Send()">
 <input type="text" name="field1" placeholder="Your Name" />
-<input type="email" name="field2" placeholder="Email Address" />
+<input type="email" name="field2" placeholder="Email Address"
+	<% String user=(String)session.getAttribute("logemail");
+		if (user!=null && user!="") {%>
+		value="<%= user %>" <%
+			}
+		%> 
+/>
 <textarea name="field3" placeholder="Type your Message"></textarea>
 <input type="submit" value="SEND" />
 </form>
