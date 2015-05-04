@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>  
+	<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>  
+	<%@ taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="sql" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -11,7 +12,7 @@ window.onload = function(){
 	//Add listener to submit button
 	if(submitbutton.addEventListener){
 		submitbutton.addEventListener("click", function() {
-			if (submitbutton.value == 'Search our website'){//Customize this text string to whatever you want
+			if (submitbutton.value == 'Search our website'){
 				submitbutton.value = '';
 			}
 		});
@@ -178,10 +179,22 @@ window.onload = function(){
 
 		<div id="tfheader">
 		<%@ page import="java.io.PrintWriter" %>
+		<%@ page import="java.sql.*" %>
+		<sql:setDataSource var="snapshot" driver="com.mysql.jdbc.Driver"
+     	url="jdbc:mysql://localhost/Users"
+     	user="root"  password="aaaaaa"/>
+		<sql:query dataSource="${snapshot}" var="result">
+		SELECT * from User_Info;
+		</sql:query>
 		<%
-			String user=(String)session.getAttribute("logemail");
+			String errchk=(String)session.getAttribute("error");
+			if (errchk!=null && errchk.equals("t")) {
+				out.println("Please enter a valid Email and Password");
+			}
+			session.removeAttribute("error");
+			String user=(String)session.getAttribute("uname");
 			if (user!=null && user!="") {
-				out.println(user); %>
+				out.println(user);%>
 				<br><a href="Logout.jsp">Log Out</a><br>
 				<%
 			}

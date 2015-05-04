@@ -10,7 +10,11 @@
 <body>
 	Signing out...
 	<%
-	session.removeAttribute("logemail");
+	session.removeAttribute("email");
+	session.removeAttribute("uname");
+	session.removeAttribute("fname");
+	session.removeAttribute("mname");
+	session.removeAttribute("lname");
 	%>
 	<c:redirect url="index.jsp"></c:redirect><c:redirect url="index.jsp"></c:redirect>
 </body>

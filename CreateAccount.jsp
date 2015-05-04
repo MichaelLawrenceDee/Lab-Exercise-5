@@ -10,31 +10,30 @@
 </head>
 <body>
 <%
-	Cookie[] cookie = request.getCookies();
-	String user=(String)session.getAttribute("logemail");
+	String user=(String)session.getAttribute("uname");
 	if (user!=null && user!="") {
 		%>
 		<c:redirect url="index.jsp"></c:redirect>
 		<%
 	}
 	else {
-%>		
-<form name="reg" action="Login.jsp" method="post" onsubmit="return CreateVal()">
-<b>Username: </b><input type="text" name="reguname"> <br>
-<b>Email: </b><input type="text" name="regemail"> <br>
-<b>Phone Number: </b><input type="text" name="regnum"> <br>
-<b>Password: </b><input type="password" name="regpass" id="regpass"> 
-<input type="checkbox" onchange="document.getElementById('regpass').type = this.checked ? 'text' : 'password'"> Show password <br>
-<b>Confirm Password: </b><input type="password" name="conpass" id="conpass">
-<input type="checkbox" onchange="document.getElementById('conpass').type = this.checked ? 'text' : 'password'"> Show password <br>
-<b>First Name: </b><input type="text" name="regfname"> <br>
-<b>Middle Name: </b><input type="text" name="regmname"> <br>
-<b>Last Name: </b><input type="text" name="reglname"> <br>
-<input type="submit" value="Register"/><br>
-<a href="index.jsp">Already have an account?</a><br>
-</form>
-<%
+	%>
+	<form name="reg" action="Create.jsp" method="post" onsubmit="return CreateVal()">
+		<b>Username: </b><input type="text" name="reguname"> <br>
+		<b>Email: </b><input type="text" name="regemail"> <br>
+		<b>Phone Number: </b><input type="text" name="regnum"> <br>
+		<b>Password: </b><input type="password" name="regpass" id="regpass"> 
+		<input type="checkbox" onchange="document.getElementById('regpass').type = this.checked ? 'text' : 'password'"> Show password <br>
+		<b>Confirm Password: </b><input type="password" name="conpass" id="conpass">
+		<input type="checkbox" onchange="document.getElementById('conpass').type = this.checked ? 'text' : 'password'"> Show password <br>
+		<b>First Name: </b><input type="text" name="regfname"> <br>
+		<b>Middle Name: </b><input type="text" name="regmname"> <br>
+		<b>Last Name: </b><input type="text" name="reglname"> <br>
+		<input type="submit" value="Register"/><br>
+		<a href="index.jsp">Already have an account?</a><br>
+	</form>
+	<%
 	}
-%>
+	%>
 </body>
 </html>

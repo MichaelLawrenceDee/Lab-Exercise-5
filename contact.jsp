@@ -36,13 +36,30 @@
 <div class="form-style-6">
 <h1>CONTACT US</h1>
 <form name="contact" action="contact" method="post" onsubmit="return Send()">
-<input type="text" name="field1" placeholder="Your Name" />
-<input type="email" name="field2" placeholder="Email Address"
-	<% String user=(String)session.getAttribute("logemail");
-		if (user!=null && user!="") {%>
-		value="<%= user %>" <%
+<input type="text" name="field1" placeholder="Your Name" 
+	<% String fname=(String)session.getAttribute("fname");
+		String mname=(String)session.getAttribute("mname");
+		String lname=(String)session.getAttribute("lname");
+		String user="";
+		if (fname!=null && fname!="" && lname!=null && lname!="") {
+			if (mname!=null && mname!="") {
+				user=fname + " " + mname + " " + lname;
+				%>
+				value="<%= user %>" <%
 			}
-		%> 
+			else {
+			user=fname + " " + lname;
+			%>
+				value="<%= user %>" <%
+			}
+		}
+		%>/>
+<input type="email" name="field2" placeholder="Email Address"
+	<% String email=(String)session.getAttribute("email");
+		if (email!=null && email!="") {%>
+		value="<%= email %>" <%
+			}
+		%>
 />
 <textarea name="field3" placeholder="Type your Message"></textarea>
 <input type="submit" value="SEND" />
