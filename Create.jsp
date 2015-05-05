@@ -34,8 +34,13 @@
 	VALUES ('<%=uname %>', '<%=pass %>', '<%=email %>', '<%=phone %>','<%=fname %>','<%=mname %>','<%=lname %>');
 	</sql:update>
 	<%
-	 	//response.sendRedirect("Login.jsp?_logemail="+URLEncoder.encode(email, "UTF-8")+"&logpass="+URLEncoder.encode(pass, "UTF-8"));
-		response.sendRedirect("Login.jsp");
+		session.setAttribute("uname", uname);
+		session.setAttribute("fname", fname);
+		session.setAttribute("mname", mname);
+		session.setAttribute("lname", lname);
+		session.setAttribute("email", email);
+		session.setAttribute("error", "f");
+		response.sendRedirect("index.jsp");
 	%>
 	</c:otherwise>
 </c:choose>
